@@ -33,4 +33,8 @@ Pasos para instalar/usar node:
         -asincrono secuencial(4.fs-async-await.js)lee el primero y hasta que no termina, no ejecuta lo siguiente, el proceso si que se queda liberado, pero no continua la ejecución.
         -asincrono en paralelo (4.fs-async-await-parallel.mjs) leemos los dos a la vez y cuando terminen los dos, y ejecuta la promesa con todo resuelto.
 
-    
+    primer comando para crear un proyecto npm init, creará un package.json
+    Para instalar un paquete: npm i picocolors
+    Hay que difrenciar dos tipos de dependencias:
+        -Producción: necesarias para funcionar
+        -Desarrollo: npm i standard -D (-D para instalar en       desarrollo) ej:standard no será necesaria en producción ya que no vas a necesitar identar el código
