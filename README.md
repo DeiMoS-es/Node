@@ -33,8 +33,19 @@ Pasos para instalar/usar node:
         -asincrono secuencial(4.fs-async-await.js)lee el primero y hasta que no termina, no ejecuta lo siguiente, el proceso si que se queda liberado, pero no continua la ejecución.
         -asincrono en paralelo (4.fs-async-await-parallel.mjs) leemos los dos a la vez y cuando terminen los dos, y ejecuta la promesa con todo resuelto.
 
-    primer comando para crear un proyecto npm init, creará un package.json
+    Primer comando para crear un proyecto npm init, creará un package.json
     Para instalar un paquete: npm i picocolors
     Hay que difrenciar dos tipos de dependencias:
         -Producción: necesarias para funcionar
         -Desarrollo: npm i standard -D (-D para instalar en       desarrollo) ej:standard no será necesaria en producción ya que no vas a necesitar identar el código
+
+Eventos: acción que se realiza en la aplicación. Node está basado en eventos asincronos.
+    Tipos de Eventos:
+        - Asincronos: los procesos no bloquean la ejecución de la aplicación
+        - Sincronos: bloquean la ejecución de la aplicación
+    Node tiene un módulo para trabajar con eventos (módulo Events).
+    Emitters(emisores): Objetos que emiten eventos nombrados y llaman a funciones específicas cuando ocurren. Los emisores son instancias de la clase EventEmitter. Esos objetos tienen un método .on() para asociar una función al evento. La función se ejecuta cuando ocurre el evento, estas funciones se denominan Event Handler (o event listener).
+
+    Promesa: Objeto que representa el eventual resultado (o error) de una operación asíncrona. Promise.
+    Las promesas tienen un método .then(), con el cual podemos decidir qué ocurre cuando se completa.
+    Función callback, función que se pasa a otra función como argumento y luego se ejecuta dentro de la función externa.

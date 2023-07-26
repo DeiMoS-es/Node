@@ -1,2 +1,8 @@
-# Ignorar la carpeta node_modules
-node_modules/
+node_modules
+package-lock.json
+
+# agregar al package.json al final 
+,
+  "eslintConfig": {
+    "extends": "standard"
+  }
