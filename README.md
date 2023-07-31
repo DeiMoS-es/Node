@@ -50,4 +50,6 @@ Eventos: acción que se realiza en la aplicación. Node está basado en eventos 
     Las promesas tienen un método .then(), con el cual podemos decidir qué ocurre cuando se completa.
     Función callback, función que se pasa a otra función como argumento y luego se ejecuta dentro de la función externa.
 
+-Express: framework más utilizado para NodeJS
+-MiddelWare: función que se ejecuta entre la petición y la respuesta
 
