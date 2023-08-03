@@ -6,7 +6,10 @@
   "scripts": {
     "dev1": "nodemon 1.http.js",
     "dev2": "nodemon 2.routing.js",
-    "dev3": "node --watch 3.express.js"
+    "dev3": "node --watch 3.express.js",
+    "dev4": "nodemon abc.js",
+    "dev5": "nodemon abc.js",
+    "dev6": "nodemon ./youtube/app.js"
   },
   "keywords": [],
   "author": "",
