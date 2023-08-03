@@ -27,6 +27,8 @@ function manejarSolicitudPOST(req, res){
     if(path === '/cursos/programacion'){
         return res.end('El servidor recibio la solicitud POST para /cursos/programacion')
     }
+    res.statusCode = 404;
+    res.end('El recurso solicitado no existe.');
 }
 
 function manejarSolicitudGET(req, res){
