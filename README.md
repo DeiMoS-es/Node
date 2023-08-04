@@ -53,3 +53,17 @@ Eventos: acción que se realiza en la aplicación. Node está basado en eventos 
 -Express: framework más utilizado para NodeJS
 -MiddelWare: función que se ejecuta entre la petición y la respuesta
 
+-API REST -> arquitectura de software.
+-Principios: Simplicidad, Escalabilidad, Portabilidad, Fiabilidad, Visibilidad, Fácil de modificar
+FUNDAMENTOS:
+    -Recursos(resources): 
+        Cada recurso se identifica con una url (una lista de usuarios, un usuario...).
+    -Verbos HTTP: GET, POST, PUT, DELETE, PATCH
+        Definen las operaciones que se pueden realizar con los recursos(acciones básicas de un CRUD).
+    -Represenaciones: JSON, XML, HTML...etc. 
+        El cliente debería de  poder recibir la representación del recurso
+    -Stateless: cada solicitud que haces al servidor, debe contener toda la info necesaria para comprender esa solicitud(el servidor no puede hacer nada para guardar información para solucionar la petición, debe de enviarse toda la info necesaria del cliente)
+    -Interfaz uniforme:
+    -Separación de conceptos: los componentes del cliente y servidor están separados entre si, es decir permite que cliente y servidor evolucionen de forman separada
+
+OJO se puede hacer una API que no sea REST
