@@ -1,0 +1,22 @@
+{
+  "name": "clase03",
+  "version": "1.0.0",
+  "description": "clase 3 creando apiRest",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeiMoS-es/Node.git"
+  },
+  "author": "DeiMoS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeiMoS-es/Node/issues"
+  },
+  "homepage": "https://github.com/DeiMoS-es/Node#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
