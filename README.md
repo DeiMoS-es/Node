@@ -67,3 +67,10 @@ FUNDAMENTOS:
     -Separación de conceptos: los componentes del cliente y servidor están separados entre si, es decir permite que cliente y servidor evolucionen de forman separada
 
 OJO se puede hacer una API que no sea REST
+
+path-to-regexp, por debajo transforma :id, en una expresión regular para capturar ese parámetero de la url
+
+Idempotencia: es la propiedad de realizar una acción determinada varias veces y aún así conseguir siempre el mismo resultado que se obtendría al hacerlo una vez (una función que por más veces que la llames siempre devuelven lo mismo, ejemplo una función suma 2 + 2)
+Post: crear un nuevo elemento/recurso en el servidor. NO es idempotente, crear siempre un nuevo recurso
+Put: actualizar totalmente un elemento ya existente o crearlo si no existe. SI es idempotente, por más veces que hagas la misma solicitud, el resultado será siempre el mismo
+Patch: actualizar parcialmente un elemento/recurso. Si, pero no está garantizado.
