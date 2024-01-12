@@ -31,3 +31,5 @@ rad.json
 TestResults.xml
 
 /node_modules
+
+.env
