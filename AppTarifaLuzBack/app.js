@@ -1,12 +1,13 @@
 // Primer paso, configurar express
 const express = require('express'); // Traemos la libreria
-
+const cors = require('cors');
 require('dotenv').config(); // Cargamos las variables del ficher .env en process.env
 
 const app = express(); 
 
 // Config, especificamos que nuestra app va a tratar las peticiones como si fuesen objetos
 // y podremos recuperarlas dentro del req.body()
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
