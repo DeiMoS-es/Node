@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1800px; /* Máximo ancho del gráfico */
+  max-width: 1000px; /* Máximo ancho del gráfico */
   height: 1000px;
 }
 
@@ -17,4 +17,9 @@
 #chart svg {
   width: 100%; /* Hace que el SVG ocupe el 100% del contenedor */
   height: 100%; /* Ajusta automáticamente la altura según la relación de aspecto */
+}
+
+.legend-item {
+  border: 1px solid black;
+  padding: 5px;
 }

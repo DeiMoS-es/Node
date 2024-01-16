@@ -56,7 +56,6 @@ export class PreciosComponent implements OnInit {
 
   private crearSVG() {
     const { margin, width, height } = this.configurarGrafico();
-
     const svg = d3
       .select('#chart')
       .append('svg')
@@ -83,7 +82,6 @@ export class PreciosComponent implements OnInit {
     const y = d3.scaleLinear().range([height, 0]);
 
     x.domain(horas);
-
     let preciosHorasConPrecio: number[] = this.precioZona.preciosHoras.map(
       (d: Data) => d.precio
     );
@@ -92,7 +90,11 @@ export class PreciosComponent implements OnInit {
     return { x, y, color };
   }
 
-  private agregarEjes(svg: d3.Selection<SVGGElement, unknown, HTMLElement, any>, x: d3.ScaleBand<string>, y: d3.ScaleLinear<number, number>) {
+  private agregarEjes(
+    svg: d3.Selection<SVGGElement, unknown, HTMLElement, any>,
+    x: d3.ScaleBand<string>,
+    y: d3.ScaleLinear<number, number>
+  ) {
     const { height } = this.configurarGrafico();
     // Añadir el eje X
     svg
@@ -193,12 +195,79 @@ export class PreciosComponent implements OnInit {
       .attr('rx', 20);
   }
 
+  private agregarLineaMedia(svg: d3.Selection<SVGGElement, unknown, HTMLElement, any>, x: d3.ScaleBand<string>, y: d3.ScaleLinear<number, number>) {
+    const { width, height } = this.configurarGrafico();
+    //Calculo la media de precios
+    const precios = this.precioZona.preciosHoras.map((d: Data) => d.precio);
+    const mediaPrecio = d3.mean(precios) || 0;
+
+    // Añadir línea de la media
+    svg
+      .data<Data>(this.precioZona.preciosHoras)
+      .append('line')
+      .attr('class', 'media-line')
+      .attr('x1', 0)
+      .attr('y1', y(mediaPrecio))
+      .attr('x2', width)
+      .attr('y2', y(mediaPrecio))
+      .attr('stroke', 'red')
+      .attr('stroke-width', 2);
+
+    svg
+      .append('text')
+      .attr('class', 'media-text')
+      .attr('x', width - 40)
+      .attr('y', y(mediaPrecio) - 10)
+      .text('Media');
+  }
+
+  private resaltarBarraActual(
+    svg: d3.Selection<SVGGElement, unknown, HTMLElement, any>,
+    x: d3.ScaleBand<string>,
+    y: d3.ScaleLinear<number, number>
+  ) {
+    const ahora = new Date();
+    const horaActual = ahora.getHours().toString(); // Obtén solo la hora del formato ISO
+    const { height } = this.configurarGrafico();
+
+    // Obtener la altura de la barra correspondiente a la hora actual
+    const alturaBarra =
+      height -
+      y(
+        this.precioZona.preciosHoras.find(
+          (d: Data) => d.datetime.slice(11, 13) === horaActual
+        )?.precio || 0
+      );
+
+    // Añadir un marco a la barra correspondiente a la hora actual
+    svg
+      .append('rect')
+      .attr('class', 'barra-actual bar') // Usa ambas clases para compartir estilos
+      .attr('x', x(horaActual) || 0)
+      .attr('width', x.bandwidth())
+      .attr(
+        'y',
+        y(
+          this.precioZona.preciosHoras.find(
+            (d: Data) => d.datetime.slice(11, 13) === horaActual
+          )?.precio || 0
+        )
+      )
+      .attr('height', alturaBarra)
+      .attr('fill', 'none')
+      .attr('stroke', 'blue')
+      .attr('stroke-width', 3)
+      .attr('rx', 20);
+  }
+
   private crearGrafico() {
     const svg = this.crearSVG();
     const { x, y, color } = this.escalarDatos();
 
     this.agregarBarras(svg, x, y, color);
     this.agregarPuntos(svg, x, y);
+    this.agregarLineaMedia(svg, x, y);
+    this.resaltarBarraActual(svg, x, y);
     this.agregarEjes(svg, x, y);
     this.agregarEtiquetas(svg);
   }
