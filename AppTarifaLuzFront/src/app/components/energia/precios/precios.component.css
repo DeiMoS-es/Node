@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
+  margin-top: 10px;
 }
 
 #chart {
@@ -10,13 +11,13 @@
   align-items: center;
   justify-content: center;
   max-width: 1000px; /* Máximo ancho del gráfico */
-  height: 1000px;
+  height: 450px;
 }
 
 /* Estilos adicionales para el gráfico SVG */
 #chart svg {
   width: 100%; /* Hace que el SVG ocupe el 100% del contenedor */
-  height: 100%; /* Ajusta automáticamente la altura según la relación de aspecto */
+  height: auto; /* Ajusta automáticamente la altura según la relación de aspecto */
 }
 
 .legend-item {

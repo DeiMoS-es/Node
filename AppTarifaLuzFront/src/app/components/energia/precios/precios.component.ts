@@ -118,8 +118,10 @@ export class PreciosComponent implements OnInit {
     const { margin } = this.configurarGrafico();
     svg
       .append('text')
-      .attr('transform', `translate(${width / 2},${height + margin.bottom})`)
+      .attr('transform', `translate(${width / 2},${height + margin.bottom + 10})`)
       .style('text-anchor', 'middle')
+      .style('fill', 'white')
+      .style('font-weight', 'bold')
       .text('Horas');
 
     // Añadir etiqueta al eje Y
@@ -128,8 +130,10 @@ export class PreciosComponent implements OnInit {
       .attr('transform', 'rotate(-90)')
       .attr('y', 0 - margin.left + 9)
       .attr('x', 0 - height / 2)
-      .attr('dy', '1em')
+      .attr('dy', '0.8em')
       .style('text-anchor', 'middle')
+      .style('fill', 'white')
+      .style('font-weight', 'bold')
       .text('€/KWh');
   }
 
@@ -167,6 +171,7 @@ export class PreciosComponent implements OnInit {
       .attr('y', -10)
       .attr('text-anchor', 'middle')
       .style('font-size', '10px')
+      .style('fill', '#B1B1B2')
       .text((d: Data) => (d.precio / 1000).toFixed(3));
   }
 
@@ -210,7 +215,7 @@ export class PreciosComponent implements OnInit {
       .attr('y1', y(mediaPrecio))
       .attr('x2', width)
       .attr('y2', y(mediaPrecio))
-      .attr('stroke', 'red')
+      .attr('stroke', '#FF7F7F')
       .attr('stroke-width', 2);
 
     svg
@@ -218,6 +223,7 @@ export class PreciosComponent implements OnInit {
       .attr('class', 'media-text')
       .attr('x', width - 40)
       .attr('y', y(mediaPrecio) - 10)
+      .style('fill', 'white')
       .text('Media');
   }
 

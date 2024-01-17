@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #3e3e3e, transparent);
+    background-repeat: no-repeat;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    overflow-y: hidden;
+    /*
+    .style('fill', 'white') // Establece el color blanco
+  .style('font-weight', 'bold') // Hace que el texto sea negrita
+    */
+}
+
