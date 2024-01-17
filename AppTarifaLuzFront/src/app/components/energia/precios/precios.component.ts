@@ -171,7 +171,7 @@ export class PreciosComponent implements OnInit {
       .attr('y', -10)
       .attr('text-anchor', 'middle')
       .style('font-size', '10px')
-      .style('fill', '#B1B1B2')
+      // .style('fill', '#B1B1B2')
       .text((d: Data) => (d.precio / 1000).toFixed(3));
   }
 
@@ -215,7 +215,7 @@ export class PreciosComponent implements OnInit {
       .attr('y1', y(mediaPrecio))
       .attr('x2', width)
       .attr('y2', y(mediaPrecio))
-      .attr('stroke', '#FF7F7F')
+      .attr('stroke', 'red')
       .attr('stroke-width', 2);
 
     svg
@@ -223,7 +223,7 @@ export class PreciosComponent implements OnInit {
       .attr('class', 'media-text')
       .attr('x', width - 40)
       .attr('y', y(mediaPrecio) - 10)
-      .style('fill', 'white')
+      // .style('fill', 'white')
       .text('Media');
   }
 
