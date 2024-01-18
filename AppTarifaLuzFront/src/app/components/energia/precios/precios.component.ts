@@ -13,8 +13,10 @@ export class PreciosComponent implements OnInit {
   precioZona: any; // TIpo any de momento
   fechaActual = new Date();
   fechaFormateada = this.obtenerFechaFormateada(this.fechaActual);
-  
-  
+  cardDataArray: { title: string; date: string; price: string }[] = [];
+  precioMedio:number = 0;
+  precioMaximo: number = 0;
+  precioMinimo: number = 0;
   
   constructor(private preciosService: PreciosService) {}
 
@@ -22,8 +24,12 @@ export class PreciosComponent implements OnInit {
     this.preciosService.getPrecios().subscribe({
       next: (precio) => {
         this.precioZona = precio;
-        console.log(this.precioZona);
         this.crearGrafico();
+        this.cardDataArray = [
+          { title: 'Precio medio del día', date:this.fechaFormateada ,price: `${this.precioMedio} €/kWh` },
+          { title: 'Precio máximo del día', date:this.fechaFormateada ,price: `${this.precioMaximo} €/kWh` },
+          { title: 'Precio mínimo del día', date:this.fechaFormateada ,price: `${this.precioMinimo} €/kWh` }
+        ];
       },
       error: (err) => {
         console.log(err);
@@ -44,10 +50,8 @@ export class PreciosComponent implements OnInit {
   
   private configurarGrafico() {
     const margin = { top: 20, right: 20, bottom: 30, left: 60 };
-    const width =
-      1000 - margin.left - margin.right; /* Ajusta el ancho del gráfico */
-    const height =
-      400 - margin.top - margin.bottom; /* Ajusta el alto del gráfico */
+    const width = 1000 - margin.left - margin.right; /* Ajusta el ancho del gráfico */
+    const height = 400 - margin.top - margin.bottom; /* Ajusta el alto del gráfico */
 
     // Configuración del gráfico, colores, etc.
     let precios = this.precioZona.preciosHoras.map((d: Data) => d.precio);
@@ -150,7 +154,7 @@ export class PreciosComponent implements OnInit {
       .style('text-anchor', 'middle')
       // .style('fill', 'white')
       .style('font-weight', 'bold')
-      .text('€/KWh');
+      .text('€/kWh');
   }
 
   private agregarPuntos(
@@ -221,11 +225,13 @@ export class PreciosComponent implements OnInit {
     unknown, HTMLElement, any>, 
     x: d3.ScaleBand<string>, 
     y: d3.ScaleLinear<number, number>) {
-    const { width, height } = this.configurarGrafico();
+    const { width } = this.configurarGrafico();
     //Calculo la media de precios
     const precios = this.precioZona.preciosHoras.map((d: Data) => d.precio);
     const mediaPrecio = d3.mean(precios) || 0;
-
+    this.precioMaximo = Math.round((d3.max(precios as number[]) || 0) as number)/1000;
+    this.precioMinimo = (Math.ceil(d3.min(precios as number[]) || 0) as number)/1000;
+    this.precioMedio = Math.round((mediaPrecio/1000) * 1000 ) / 1000; // Redondeo a tres decimales
     // Añadir línea de la media
     svg
       .data<Data>(this.precioZona.preciosHoras)
@@ -235,16 +241,16 @@ export class PreciosComponent implements OnInit {
       .attr('y1', y(mediaPrecio))
       .attr('x2', width)
       .attr('y2', y(mediaPrecio))
-      .attr('stroke', 'red')
+      .attr('stroke', 'purple')
       .attr('stroke-width', 2);
 
-    svg
-      .append('text')
-      .attr('class', 'media-text')
-      .attr('x', width - 40)
-      .attr('y', y(mediaPrecio) - 10)
-      // .style('fill', 'white')
-      .text('Media');
+    // svg
+    //   .append('text')
+    //   .attr('class', 'media-text')
+    //   .attr('x', width - 40)
+    //   .attr('y', y(mediaPrecio) - 10)
+    //   // .style('fill', 'white')
+    //   .text('Media');
   }
 
   private resaltarBarraActual(

@@ -31,3 +31,11 @@
   align-items: center;
   margin-top: 1rem;
 }
+
+.card-container{
+  display: flex;
+  margin-top: 3rem;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Esto permite que las cards se desborden en varias filas */
+  gap: 80px;
+}

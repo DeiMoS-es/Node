@@ -2,12 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    /* height: 100vh;
-    background: linear-gradient(to bottom, #3e3e3e, transparent);
-    background-repeat: no-repeat;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    overflow-y: hidden; */
+    height: 100vh;
+    overflow-x: hidden;
 }
 

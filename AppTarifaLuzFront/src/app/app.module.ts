@@ -7,13 +7,16 @@ import { AppComponent } from './app.component';
 import { PreciosComponent } from './components/energia/precios/precios.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { CardsComponent } from './components/energia/cards/cards.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PreciosComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CardsComponent,
   ],
   imports: [
     BrowserModule,
