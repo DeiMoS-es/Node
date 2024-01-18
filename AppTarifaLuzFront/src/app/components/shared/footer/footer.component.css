@@ -1,10 +1,10 @@
 footer{
+    position: relative;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     margin-top: 50px;
-    bottom: 0;
     width: 100vw;
     height: 100px;
     background-color: #3498db; /* Color del header */
@@ -18,3 +18,8 @@ footer a{
     font-weight: bold;
 }
 
+@media (min-width: 2000px) {
+    footer {
+      position: fixed;
+    }
+  }
