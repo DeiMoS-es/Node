@@ -1,9 +1,11 @@
 .chart-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: center;  
   align-items: center;
   height: auto;
   margin-top: 10px;
+  background-color: lightgray;
 }
 
 #chart {
@@ -12,15 +14,14 @@
   justify-content: center;
   max-width: 1000px; /* Máximo ancho del gráfico */
   height: 450px;
-}
 
-/* Estilos adicionales para el gráfico SVG */
+}
 #chart svg {
   width: 100%; /* Hace que el SVG ocupe el 100% del contenedor */
   height: auto; /* Ajusta automáticamente la altura según la relación de aspecto */
 }
 
-.legend-item {
-  border: 1px solid black;
-  padding: 5px;
+.fecha{
+  display: flex;
+  align-items: center;
 }
