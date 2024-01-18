@@ -3,9 +3,14 @@
   flex-direction: column;
   justify-content: center;  
   align-items: center;
+  width: 80%;
   height: auto;
   margin-top: 10px;
-  background-color: lightgray;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(243, 242, 242);
+  border-radius: 1%;  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta los valores según tus preferencias */
 }
 
 #chart {
@@ -24,4 +29,5 @@
 .fecha{
   display: flex;
   align-items: center;
+  margin-top: 1rem;
 }

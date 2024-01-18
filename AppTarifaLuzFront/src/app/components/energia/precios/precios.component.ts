@@ -136,7 +136,7 @@ export class PreciosComponent implements OnInit {
       .append('text')
       .attr('transform', `translate(${width / 2},${height + margin.bottom + 10})`)
       .style('text-anchor', 'middle')
-      .style('fill', 'white')
+      // .style('fill', 'white')
       .style('font-weight', 'bold')
       .text('Horas');
 
@@ -148,7 +148,7 @@ export class PreciosComponent implements OnInit {
       .attr('x', 0 - height / 2)
       .attr('dy', '0.8em')
       .style('text-anchor', 'middle')
-      .style('fill', 'white')
+      // .style('fill', 'white')
       .style('font-weight', 'bold')
       .text('€/KWh');
   }
