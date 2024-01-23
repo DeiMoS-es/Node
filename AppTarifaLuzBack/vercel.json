@@ -5,9 +5,9 @@
             "use": "@vercel/node"
         }
     ],
-    "routes": [
+    "routes":[
         {
-            "src": "/api/precios",
+            "src":"/api/precios",
             "dest": "/"
         }
     ]
