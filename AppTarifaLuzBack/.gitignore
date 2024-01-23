@@ -32,4 +32,4 @@ TestResults.xml
 
 /node_modules
 
-.env
+#.env
