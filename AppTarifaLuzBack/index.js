@@ -7,7 +7,17 @@ const app = express();
 
 // Config, especificamos que nuestra app va a tratar las peticiones como si fuesen objetos
 // y podremos recuperarlas dentro del req.body()
-app.use(cors());
+// app.use(cors({
+//   origin: ['https://appluzfront.vercel.app', 'https://appluzfront-kkbvy1nw9-deimoss-projects.vercel.app/'],
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true, // Habilita el envío de cookies de manera segura entre el cliente y el servidor
+//   optionsSuccessStatus: 204, // Responde con un 204 (sin contenido) para las solicitudes OPTIONS
+//   }));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
