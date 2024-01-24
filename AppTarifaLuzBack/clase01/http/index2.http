@@ -1,0 +1,9 @@
+GET  http://localhost:1234/ HTTP/1.1
+###
+PUT http://localhost:1234/ HTTP/1.1
+###
+POST http://localhost:1234/cursos/programacion
+Content-Type: application/json
+{
+    "titulo": "Aprende Node.js"
+}

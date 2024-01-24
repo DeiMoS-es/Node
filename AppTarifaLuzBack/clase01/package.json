@@ -1,0 +1,30 @@
+{
+  "name": "curso-node",
+  "version": "1.0.0",
+  "description": "El mejor curso de Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeiMoS-es/Node.git"
+  },
+  "keywords": [
+    "curso",
+    "node",
+    "nodejs"
+  ],
+  "author": "DeiMoS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeiMoS-es/Node/issues"
+  },
+  "homepage": "https://github.com/DeiMoS-es/Node#readme",
+  "dependencies": {
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  }
+}
