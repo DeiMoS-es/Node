@@ -1,0 +1,24 @@
+{
+  "name": "backdragonball",
+  "version": "1.0.0",
+  "description": "Aquí irá la lógica que se comunicará con el front",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeiMoS-es/Node.git"
+  },
+  "author": "Nagib",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeiMoS-es/Node/issues"
+  },
+  "homepage": "https://github.com/DeiMoS-es/Node#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "openai": "^4.56.0",
+    "socket.io": "^4.7.5"
+  }
+}
