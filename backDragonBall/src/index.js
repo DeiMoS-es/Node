@@ -1,10 +1,11 @@
+require('dotenv').config(); // Cargamos las variables del ficher .env en process.env
  // Primer paso, configurar express
 const express = require('express'); // Traemos la libreria
+const logger = require('morgan');
 const http = require('http');
 const socketIo = require('socket.io');
 const chatRoutes = require('./routes/api/chat');
 const cors = require('cors');
-require('dotenv').config(); // Cargamos las variables del ficher .env en process.env
 
 const app = express(); 
 
@@ -13,6 +14,7 @@ app.use(
     origin: "*",
   })
 );
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
