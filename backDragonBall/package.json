@@ -2,9 +2,11 @@
   "name": "backdragonball",
   "version": "1.0.0",
   "description": "Aquí irá la lógica que se comunicará con el front",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +19,12 @@
   },
   "homepage": "https://github.com/DeiMoS-es/Node#readme",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "openai": "^4.56.0",
     "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }
