@@ -2,7 +2,7 @@
   "name": "backdragonball",
   "version": "1.0.0",
   "description": "Aquí irá la lógica que se comunicará con el front",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
