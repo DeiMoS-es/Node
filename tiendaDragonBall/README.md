@@ -1,6 +1,7 @@
 # Notas:
-## Descripción de las carpetas y archivos
+## Este proyecto contiene toda la lógica para la tienda online de productos de Dragon Ball
 
+## Descripción de las carpetas y archivos:
 - **src/**: Carpeta principal que contiene todo el código fuente.
 - **config/**: Configuración de la base de datos.
 - **modules/**: Cada módulo representa una funcionalidad o dominio específico (productos, usuarios, autenticación).
