@@ -1,0 +1,6 @@
+### Recuperar todas las figuras
+GET  http://localhost:3000/api/figures
+## Recuperar figura por id
+GET  http://localhost:3000/api/figures/1
+## Recuperar figura por tipo de personaje, por query params
+GET  http://localhost:3000/api/figures?type=saiyan
