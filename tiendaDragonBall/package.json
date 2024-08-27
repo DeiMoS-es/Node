@@ -2,9 +2,10 @@
   "name": "tiendadragonball",
   "version": "1.0.0",
   "description": "Tienda de articulos relacionados con el anime de dragonball",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
     "dev": "node --watch src/index.js"
   },
   "author": "Nagib Delgado",
