@@ -1,0 +1,11 @@
+{
+  "name": "tiendadragonball",
+  "version": "1.0.0",
+  "description": "Tienda de articulos relacionados con el anime de dragonball",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nagib Delgado",
+  "license": "ISC"
+}
