@@ -4,6 +4,7 @@
     "name": "Goku",
     "power": "Super Saiyan",
     "real_name": "Kakarot",
+    "type": ["figura"],
     "avatar": "https://www.ociostock.com/productos/imagenes/img_362844_26f1dc9484555f85adcf3e71818923ea_20.jpg"
   },
   {
@@ -11,6 +12,7 @@
     "name": "Vegeta",
     "power": "Super Saiyan",
     "real_name": "Vegeta",
+    "type": ["figura"],
     "avatar": "https://www.ociostock.com/productos/imagenes/img_362860_070ccda5e1ba013954b50e2d878f9fab_20.jpg"
   },
   {
@@ -18,6 +20,7 @@
     "name": "Gohan",
     "power": "Super Saiyan",
     "real_name": "Gohan",
+    "type": ["figura"],
     "avatar": "https://www.ociostock.com/productos/imagenes/img_164092_4f81cd20f3a7b638d619805575bf9149_20.jpg"
   },
   {
@@ -25,6 +28,7 @@
     "name": "Trunks",
     "power": "Super Saiyan",
     "real_name": "Trunks",
+    "type": ["figura"],
     "avatar": "https://www.ociostock.com/productos/imagenes/img_200209_b872d5fe10489840bb26e27423565ce4_20.jpg"
   },
   {
@@ -32,6 +36,7 @@
     "name": "Goten",
     "power": "Super Saiyan",
     "real_name": "Goten",
+    "type": ["figura"],
     "avatar": "https://www.ociostock.com/productos/imagenes/img_315012_7ebccb621f2531173fae55d0d36a18e7_20.jpg"
   }
 ]

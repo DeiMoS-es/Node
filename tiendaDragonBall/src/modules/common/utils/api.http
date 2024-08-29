@@ -1,6 +1,20 @@
 ### Recuperar todas las figuras
-GET  http://localhost:3000/api/figures
-## Recuperar figura por id
-GET  http://localhost:3000/api/figures/1
-## Recuperar figura por tipo de personaje, por query params
-GET  http://localhost:3000/api/figures?type=saiyan
+GET  http://localhost:3000/api/items/all
+
+### Recuperar figura por id
+GET  http://localhost:3000/api/items/1
+
+### Recuperar figura por tipo de objeto, por query params
+GET  http://localhost:3000/api/items/all?type=figura
+
+### Crear un heroe con POST
+POST http://localhost:3000/api/items
+Content-Type: application/json
+
+{
+    "name": "Piccolo",
+    "power": "Regeneracion",
+    "real_name": "Piccolo",
+    "type": ["figura"],
+    "avatar": "https://www.ociostock.com/productos/imagenes/img_362864_c465e94c43c05b98d77959583381597e_20.jpg"
+}
