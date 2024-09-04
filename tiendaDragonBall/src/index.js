@@ -1,18 +1,21 @@
-require('dotenv').config();
-const express = require('express');
-const app = express();
-const cors = require('cors');
+import dotenv from 'dotenv';
+dotenv.config();
+import express from 'express';
+import cors from 'cors';
+import apiroutes from './routes/api.js';
+import connectDB from './config/db.js';
 
+const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.disable('x-powered-by');
 
 // Conectamos a la base de datos
-const connectDB = require('./config/db');
 connectDB();
+
 //Delegamos las rutas que vengan de /api a nuestro archivo de rutas
-app.use('/api', require('./routes/api'));
+app.use('/api', apiroutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'API Working' });

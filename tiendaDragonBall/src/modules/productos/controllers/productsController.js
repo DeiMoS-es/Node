@@ -1,21 +1,21 @@
-// controllers/chatController.js
-const { error } = require('node:console');
-const heroes = require('../../common/utils/heroes.json');
-const crypto = require('node:crypto');
-const { validateItem, validatePartialItem } = require('../../common/utils/schemas/items'); 
+import { error } from 'node:console';
+import heroes from '../../common/utils/heroes.json' assert { type: 'json' };
+import crypto from 'node:crypto';
+import { validateItem, validatePartialItem } from '../../common/utils/schemas/items.js';
 
-ACCEPTED_ORIGINS = [
+const ACCEPTED_ORIGINS = [
   'http://localhost:3000',
   'http://localhost:3001',
   'https://heroes-app.vercel.app'
 ];
-exports.sendMessage = (req, res) => {
+
+export const sendMessage = (req, res) => {
   const message = req.body.message;
   // Lógica para manejar el envío del mensaje
   res.json({ message: 'productsController' });
 };
 
-exports.getProducts = (req, res) => {
+export const getProducts = (req, res) => {
   req.header('Access-Control-Allow-Origin', '*');
   const { type } = req.query;
   if (type) {
@@ -29,7 +29,7 @@ exports.getProducts = (req, res) => {
   res.json(heroes);
 };
 
-exports.getHeroe = (req, res) => {
+export const getHeroe = (req, res) => {
   const { id } = req.params;
   const heroe = heroes.find((heroe) => heroe.id === parseInt(id, 10));
   return heroe
@@ -37,7 +37,7 @@ exports.getHeroe = (req, res) => {
     : res.status(404).json({ message: 'Heroe not found' }); // Enviar la respuesta si no se encuentra el héroe
 };
 
-exports.createProduct = (req, res) => {
+export const createProduct = (req, res) => {
   const result = validateItem(req.body);
   if(result.error) {
     return res.status(400).json({ error: result.error.errors});
@@ -52,30 +52,25 @@ exports.createProduct = (req, res) => {
   res.status(201).json(newItem);
 };
 
-exports.updateProduct = (req, res) => {
+export const updateProduct = (req, res) => {
+  const { id } = req.params;
   const result = validatePartialItem(req.body);
-  if(!result.success) {
+  if(result.error) {
     return res.status(400).json({ error: result.error.errors});
   }
-  const { id } = req.params;
-  const itemsIndex = heroes.findIndex((heroe) => heroe.id ===  Number(id));
-  if (itemsIndex === -1) {
-    return res.status(404).json({ message: 'Item not found' });
+  const index = heroes.findIndex((heroe) => heroe.id === parseInt(id, 10));
+  if (index === -1) {
+    return res.status(404).json({ message: 'Heroe not found' });
   }
-  const updateItem = {
-    ...heroes[itemsIndex],
+  const updatedItem = {
+    ...heroes[index],
     ...result.data
   };
-  heroes[itemsIndex] = updateItem;
-  return res.json(updateItem);
-}
+  heroes[index] = updatedItem;
+  res.json(updatedItem);
+};
 
-exports.options = (req, res) => {
-  const origin = req.header('origin');
-  // const origin = req.headers.origin;
-  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
-    res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
-  }
-  res.send(200);
-}
+export const options = (req, res) => {
+  res.set('Allow', 'GET, POST, PATCH, OPTIONS');
+  res.sendStatus(204);
+};

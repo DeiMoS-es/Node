@@ -1,4 +1,8 @@
-// encargado de gestionar todas las rutas de la api
-const router = require('express').Router();
-router.use('/items',require('./api/productsRoute'));
-module.exports = router;
+// src/routes/api.js
+import express from 'express';
+const router = express.Router();
+
+import productsRoute from './api/productsRoute.js';
+router.use('/items', productsRoute);
+
+export default router;
