@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const crypto = require('node:crypto');
 
 app.use(cors({ origin: '*' }));
 app.use(express.json());

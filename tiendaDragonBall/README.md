@@ -15,3 +15,6 @@
 - **app.js**: Archivo principal de la aplicación.
 - **package.json**: Dependencias y scripts del proyecto.
 - **README.md**: Documentación del proyecto.
+
+
+Voy a utilizar Zod para validar los datos

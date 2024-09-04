@@ -7,5 +7,7 @@ router.get('/', productController.sendMessage);
 router.get('/all', productController.getProducts);
 router.get('/:id', productController.getHeroe);
 router.post('/', productController.createProduct);
+router.patch('/:id', productController.updateProduct);
+router.options('/:id', productController.options);
 
 module.exports = router;

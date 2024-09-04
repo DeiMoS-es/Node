@@ -12,9 +12,18 @@ POST http://localhost:3000/api/items
 Content-Type: application/json
 
 {
-    "name": "Piccolo",
+    "sql": "SELECT * FROM users WHERE id = 1",
+    "name": "Piccolo2",
     "power": "Regeneracion",
     "real_name": "Piccolo",
     "type": ["figura"],
     "avatar": "https://www.ociostock.com/productos/imagenes/img_362864_c465e94c43c05b98d77959583381597e_20.jpg"
+}
+
+### Actualizar un heroe con PATCH, PUT lo que hace es actualiar completamente un elemento y crearlo si no existe y el PATCH actualiza solo los campos que se le pasan
+PATCH http://localhost:3000/api/items/1
+Content-Type: application/json
+
+{
+    "name": "Piccolo2"
 }
