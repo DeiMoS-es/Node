@@ -74,3 +74,13 @@ export const options = (req, res) => {
   res.set('Allow', 'GET, POST, PATCH, OPTIONS');
   res.sendStatus(204);
 };
+
+export const deleteProduct = (req, res) => {
+  const { id } = req.params;
+  const heroIndex = heroes.findIndex((heroe) => heroe.id === parseInt(id, 10));
+  if (heroIndex === -1) {
+    return res.status(404).json({ message: 'Heroe not found' });
+  }
+  heroes.splice(heroIndex, 1);
+  return res.json({ message: 'Heroe deleted' });
+}

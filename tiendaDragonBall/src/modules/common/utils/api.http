@@ -27,3 +27,6 @@ Content-Type: application/json
 {
     "name": "Piccolo2"
 }
+
+### Eliminar un heroe con DELETE
+DELETE http://localhost:3000/api/items/1
